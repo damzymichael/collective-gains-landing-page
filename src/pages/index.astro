@@ -4,7 +4,15 @@ import Layout from "../layouts/Layout.astro"
 
 <Layout>
   <div class="h-[80vh] max-h-[1500px] flex items-center justify-center">
-    <p class="text-lg md:text-4xl font-bold -mt-20 text-white">Collective Gains landing page</p>
+    <div>
+      <p class="text-lg md:text-4xl font-bold -mt-20 text-white mb-4">
+        Collective Gains landing page
+      </p>
+      <nav class="flex justify-center items-center gap-3 text-white">
+        <a href="/terms-and-conditions" class="underline">Terms and Conditions</a>
+        <a href="/privacy-policy" class="underline">Privacy Policy</a>
+      </nav>
+    </div>
   </div>
   <script>
     document.body.style.backgroundColor = "#364153"
