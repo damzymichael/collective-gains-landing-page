@@ -1,0 +1,105 @@
+---
+import Navigation from "../../components/Navigation"
+import Layout from "../../layouts/Layout.astro"
+import { FaChevronLeft } from "react-icons/fa6"
+
+const sections = [
+  {
+    id: "eligibility",
+    label: "Eligibility",
+    content:
+      "You must be at least 18 years old to use Collective Gain Services. By registering, you confirm that you meet this requirement.",
+  },
+  {
+    id: "how-it-works",
+    label: "How it works",
+    content:
+      "Collective Gain Services operates as a referral-based user advancement system: Each user must refer at least 3 new users to move to the next level. The referred users must each refer 3 new users to qualify the original referrer for Level 3. The total Bonus Package become withdrawable only when your 3 direct referrals have completed their registration within 5 days of your own registration. Users must complete registration through manual payment with a unique transaction description provided during sign-up.",
+  },
+  {
+    id: "payments",
+    label: "Payments",
+    content:
+      "Registration payments are processed manually via designated accounts provided during the sign-up process. Each user must use their unique code in the transaction description for successful activation. All payments are final. No refunds or cancellations are allowed under any circumstances.",
+  },
+  {
+    id: "user-conduct",
+    label: "User conduct",
+    content:
+      " Users agree not to: Engage in fraud, scams, or any form of illegal activity on the platform Harass or threaten other users Attempt to reverse-engineer, tamper with, or misuse the platform Violations of these rules may lead to account suspension or  termination, without notice or refund.",
+  },
+  {
+    id: "bonuses-and-withdrawals",
+    label: "Bonuses and Withdrawals",
+    content:
+      "Bonuses are subject to the following conditions: They are only payable when referral requirements are met within the time limit. Withdrawals will be processed to the account details submitted by the user. Users are solely responsible for entering accurate  banking information.",
+  },
+  {
+    id: "account-termination",
+    label: "Account Termination",
+    content:
+      "We reserve the right to suspend or terminate any account at our discretion, particularly if we suspect: Fraudulent activity Multiple account abuse Violation of the referral structure",
+  },
+  {
+    id: "changes-to-these-terms",
+    label: "Changes to these terms",
+    content:
+      "We may update these Terms from time to time. Continued use of the platform after changes are posted implies your acceptance.",
+  },
+  {
+    id: "governing-law",
+    label: "Governing Law",
+    content:
+      "These Terms shall be governed in accordance with the laws of the Federal Republic of Nigeria.",
+  },
+  {
+    id: "contact-us",
+    label: "Contact Us",
+    content:
+      "If you have any questions about these Terms, please contact our support team at: s07025357422",
+  },
+]
+---
+
+<Layout>
+  <div class="text-white w-11/12 max-w-screen-2xl mx-auto flex mt-2">
+    <header class="hidden md:block font-manrope min-w-[150px] sticky top-2 h-screen">
+      <button onclick="history.back()" class="flex gap-1 items-center text-sm cursor-pointer">
+        <FaChevronLeft />
+        <p class="mr-3">Back</p>
+        <svg
+          width="1"
+          height="24"
+          viewBox="0 0 1 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <line x1="0.5" y1="2.18558e-08" x2="0.499999" y2="30" stroke="white"></line>
+        </svg>
+      </button>
+      <Navigation sections={sections} client:load />
+    </header>
+    <section class="w-full md:ml-[5%] lg:ml-[10%] xl:ml-[11%] 2xl:ml-[20%]">
+      <h1
+        class="text-2xl md:text-3xl font-medium font-acid-grotesk text-center md:text-left mb-4 md:mb-8"
+      >
+        Terms and conditions
+      </h1>
+      <div class="font-manrope">
+        {
+          sections.map((section, index) => (
+            <section id={section.id}>
+              <h3 class="mb-1 font-semibold text-lg sm:text-xl">
+                {index + 1}. {section.label}
+              </h3>
+              <p class="font-light mb-6 text-sm sm:md-base">{section.content}</p>
+            </section>
+          ))
+        }
+      </div>
+    </section>
+  </div>
+  <script>
+    document.body.style.backgroundColor = "#172554F2"
+  </script>
+</Layout>

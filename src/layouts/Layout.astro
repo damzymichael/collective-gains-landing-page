@@ -1,0 +1,162 @@
+---
+import "../styles/global.css"
+import { RiMenu3Fill } from "react-icons/ri"
+import { IoCloseCircle } from "react-icons/io5"
+
+interface Props {
+  title?: string
+  description?: string
+}
+
+const { title, description = "Collective Gains Services" } = Astro.props
+
+const pageTitle = title ? `${title} - Collective Gains` : "Collective Gains"
+// Todo Add Signup and login link from Dashboard
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Global Metadata -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+    <!-- <meta property="og:image" content="/engineer.jpg" /> -->
+    <meta property="og:type" content="website" />
+    <link rel="icon" type="image/svg+xml" href="/icon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Manrope:wght@200..800&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Primary Meta Tags -->
+    <title>{pageTitle}</title>
+    <meta name="title" content={pageTitle} />
+    <meta name="description" content={description} />
+  </head>
+  <body>
+    <div class="min-h-screen border">
+      <header class="py-3 font-manrope">
+        <nav
+          class="bg-white w-[95%] rounded-4xl px-3 md:px-2 mx-auto max-w-[700px] py-2 md:py-3 flex items-center justify-between"
+        >
+          <img src="/icon.svg" alt="Collective Gains Icon" class="-translate-y-1 h-[30px] mr-10" />
+          <ul class="font-semibold hidden md:flex items-center justify-between gap-5 grow">
+            <div class="flex items-center justify-around gap-5 grow">
+              <li>
+                <a href="#">Home</a>
+              </li>
+              <li>
+                <a href="#">How it works</a>
+              </li>
+              <li>
+                <a href="#">FAQ</a>
+              </li>
+            </div>
+            <div class="flex gap-2 items-center">
+              <li>
+                <a href="#" class="bg-primary py-2 px-6 text-white rounded-full"> Sign up </a>
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="bg-[#E2E6F1] border border-primary py-2 px-6 text-primary rounded-full"
+                >
+                  Login
+                </a>
+              </li>
+            </div>
+          </ul>
+          <button class="md:hidden text-2xl openNavigation">
+            <RiMenu3Fill />
+          </button>
+        </nav>
+      </header>
+
+      <!-- Mobile opening navigation  -->
+      <div
+        style="clip-path: circle(0.3% at 100% 0); display: none;"
+        class="bg-white fixed top-0 w-full h-screen md:hidden flex flex-col mobile-navigation"
+      >
+        <header class="py-4 px-2 border-b border-primary flex items-center justify-between">
+          <img src="/icon.svg" alt="Collective Gains Icon" class="-translate-y-1 h-[30px] mr-10" />
+          <button class="closeNavigaton">
+            <IoCloseCircle size={35} color="#172554" />
+          </button>
+        </header>
+        <nav class="px-3 py-5 grow font-acid-grotesk font-medium relative">
+          <ul class="space-y-5">
+            <!-- <li class="">
+              <a href="#" class="block w-full py-3 px-2 bg-primary text-white rounded-lg"> Home </a>
+            </li> -->
+            <li>
+              <a href="#" class="block w-full py-3 px-2 rounded-lg mobile-link"> Home </a>
+            </li>
+            <li>
+              <a href="#" class="block w-full py-3 px-2 rounded-lg mobile-link"> How it works </a>
+            </li>
+            <li>
+              <a href="#" class="block w-full py-3 px-2 rounded-lg mobile-link"> FAQ </a>
+            </li>
+          </ul>
+        </nav>
+        <div
+          class="absolute left-1/2 -translate-x-1/2 w-full bottom-10 px-2 space-y-2 font-semibold"
+        >
+          <a
+            href="#"
+            class="bg-primary block text-center py-2 px-6 text-white rounded-full mobile-link"
+          >
+            Sign up
+          </a>
+
+          <a
+            href="#"
+            class="bg-[#E2E6F1] block text-center border border-primary py-2 px-6 text-primary rounded-full mobile-link"
+          >
+            Login
+          </a>
+        </div>
+      </div>
+      <main>
+        <slot />
+      </main>
+    </div>
+    <script>
+      import { animate } from "motion/react"
+
+      const openNavigation = document.querySelector(".openNavigation") as HTMLElement
+      const closeNavigation = document.querySelector(".closeNavigaton") as HTMLElement
+      const mobileNavigation = document.querySelector(".mobile-navigation") as HTMLElement
+      const mobileLinks = document.querySelectorAll(".mobile-link")
+
+      // Open mobile navigation
+      openNavigation.addEventListener("click", () => {
+        mobileNavigation.style.display = "block"
+        animate(
+          mobileNavigation,
+          { clipPath: "circle(140% at 4% 4%)" },
+          { duration: 0.9, type: "spring", bounce: 0.2 },
+        )
+      })
+
+      async function closeMobileNavigation() {
+        await animate(
+          mobileNavigation,
+          { clipPath: "circle(0.3% at 100% 0)" },
+          { duration: 0.9, type: "spring", bounce: 0.2 },
+        )
+        mobileNavigation.style.display = "none"
+      }
+
+      // Close mobile navigation
+      closeNavigation.addEventListener("click", closeMobileNavigation)
+
+      mobileLinks.forEach((link) => link.addEventListener("click", closeMobileNavigation))
+
+      // Resize event listener to close navigation when screen size exceeds md
+    </script>
+  </body>
+</html>

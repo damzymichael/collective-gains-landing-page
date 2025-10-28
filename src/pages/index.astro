@@ -1,16 +1,12 @@
 ---
-
+import Layout from "../layouts/Layout.astro"
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout>
+  <div class="h-[80vh] max-h-[1500px] flex items-center justify-center">
+    <p class="text-lg md:text-4xl font-bold -mt-20 text-white">Collective Gains landing page</p>
+  </div>
+  <script>
+    document.body.style.backgroundColor = "#364153"
+  </script>
+</Layout>

@@ -1,0 +1,171 @@
+---
+import Navigation from "../../components/Navigation"
+import Layout from "../../layouts/Layout.astro"
+import { FaChevronLeft } from "react-icons/fa6"
+
+const sections = [
+  { id: "information-we-collect", label: "Information we Collect" },
+  { id: "how-we-use-your-information", label: "How we use your information" },
+  { id: "data-sharing-and-disclosure", label: "Data Sharing and disclosure" },
+  { id: "data-security", label: "Data Security" },
+  { id: "cookies-and-tracking", label: "Cookies and Tracking" },
+  { id: "user-rights", label: "User Rights" },
+  { id: "childrens-privacy", label: "Children's privacy" },
+  { id: "changes-to-this-privacy-policy", label: "Changes to this privacy policy" },
+  { id: "contact-us", label: "Contact Us" },
+]
+---
+
+<Layout>
+  <div class="text-white w-11/12 max-w-screen-2xl mx-auto flex mt-2">
+    <header class="hidden md:block font-manrope min-w-[150px] sticky top-2 h-screen">
+      <button onclick="history.back()" class="flex gap-1 items-center text-sm cursor-pointer">
+        <FaChevronLeft />
+        <p class="mr-3">Back</p>
+        <svg
+          width="1"
+          height="24"
+          viewBox="0 0 1 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <line x1="0.5" y1="2.18558e-08" x2="0.499999" y2="30" stroke="white"></line>
+        </svg>
+      </button>
+      <Navigation sections={sections} client:load />
+    </header>
+    <section class="w-full md:ml-[5%] lg:ml-[10%] xl:ml-[11%] 2xl:ml-[20%]">
+      <div class="mb-6">
+        <h1
+          class="text-2xl md:text-3xl font-medium font-acid-grotesk text-center md:text-left mb-2 md:mb-4"
+        >
+          Privacy Policy
+        </h1>
+        <p class="font-light mb-6 text-sm sm:text-base">
+          This Privacy Policy outlines how Collective Gain Services ("we", "our", or "us") collects,
+          uses, discloses, and protects the personal information of users ("you") who access or use
+          our platform. By registering or using our services, you agree to the terms of this policy.
+        </p>
+      </div>
+      <div class="font-manrope">
+        <section id="information-we-collect" class="mb-6">
+          <h3 class="mb-2 font-semibold text-lg sm:text-xl">1. Information we Collect</h3>
+          <div>
+            <p class="font-medium mb-3 text-sm sm:text-base">
+              We collect the following types of personal information during registration and use of
+              the platform:
+            </p>
+            <ul class="space-y-1 font-light text-sm list-disc px-4">
+              <li>Full Name</li>
+              <li>Phone Number</li>
+              <li>Email Address</li>
+              <li>Bank Account Details (for withdrawals)</li>
+              <li>Transaction Descriptions used in manual payments</li>
+              <li>Referral History and Downline Activity</li>
+              <li>Login and Usage Data (IP address, browser, device type)</li>
+            </ul>
+          </div>
+        </section>
+
+        <section id="how-we-use-your-information" class="mb-6">
+          <h3 class="font-semibold text-lg sm:text-xl mb-2">2. How we use your information</h3>
+          <div>
+            <p class="font-medium mb-3 text-sm sm:text-base">
+              We use the information collected for the following purposes:
+            </p>
+            <ul class="space-y-1 font-light text-sm list-disc px-4">
+              <li>To create and manage your user account</li>
+              <li>To verify manual payments and activate accounts</li>
+              <li>To track referral chains and determine level upgradess</li>
+              <li>To process bonus withdrawals</li>
+              <li>To communicate updates, changes, or issues related to your account</li>
+              <li>To prevent fraud or abuse of the referral system</li>
+            </ul>
+          </div>
+        </section>
+
+        <section id="data-sharing-and-disclosure" class="mb-6">
+          <h3 class="mb-2 font-semibold text-lg sm:text-xl">3. Data Sharing and disclosure</h3>
+          <div>
+            <p class="font-medium text-sm sm:text-base mb-2">
+              We do not sell or rent your personal data to third parties. <br />
+              We may disclose your data in the following cases:
+            </p>
+            <ul class="space-y-1 font-light text-sm list-disc px-4">
+              <li>To payment processors or banks for verification</li>
+              <li>When required by law enforcement or legal process</li>
+              <li>
+                If necessary to protect the rights, safety, or integrity of the platform or other
+                users
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <section id="data-security" class="mb-6">
+          <h3 class="mb-1 font-semibold text-lg sm:text-xl">4. Data Security</h3>
+
+          <p class="font-medium text-sm sm:text-base">
+            We implement appropriate technical and organizational measures to protect your
+            information from unauthorized access, loss, or misuse. <br />
+            However, no platform can guarantee 100% security. Users are responsible for keeping their
+            login credentials confidential.
+          </p>
+        </section>
+
+        <section id="cookies-and-tracking" class="mb-6">
+          <h3 class="mb-1 font-semibold text-lg sm:text-xl">5. Cookies and Tracking</h3>
+          <div>
+            <p class="font-medium text-sm sm:text-base">
+              Cookies and Tracking We may use cookies or similar technologies to:
+            </p>
+            <ul class="space-y-1 font-light text-sm list-disc px-4">
+              <li>Remember your login session</li>
+              <li>Analyze how users interact with the platform</li>
+              <li>Improve our service delivery</li>
+            </ul>
+          </div>
+        </section>
+
+        <section id="user-rights" class="mb-6">
+          <h3 class="mb-1 font-semibold text-lg sm:text-xl">6. User Rights</h3>
+          <p class="font-medium text-sm sm:text-base">You have the right to:</p>
+          <ul class="space-y-1 font-light text-sm list-disc px-4">
+            <li>Access your personal information</li>
+            <li>Request correction of any inaccurate data</li>
+            <li>Request deletion of your account and personal data (where applicable)</li>
+            <li>To exercise any of these rights, contact us at the email provided below.</li>
+          </ul>
+        </section>
+
+        <section id="childrens-privacy" class="mb-6">
+          <h3 class="mb-1 font-semibold text-lg sm:text-xl">7. Children's privacy</h3>
+          <p class="font-light mb-6 text-sm sm:text-base">
+            This platform is strictly for users 18 years and above. We do not knowingly collect
+            personal data from anyone under this age.
+          </p>
+        </section>
+
+        <section id="changes-to-this-privacy-policy">
+          <h3 class="mb-1 font-semibold text-lg sm:text-xl">8. Changes to this privacy policy</h3>
+          <p class="font-light mb-6 text-sm sm:text-base">
+            We may update this policy periodically. When we do, we’ll revise the “Last Updated” date
+            above. Continued use of the platform after updates implies your acceptance of the new
+            policy.
+          </p>
+        </section>
+
+        <section id="contact-us">
+          <h3 class="mb-1 font-semibold text-lg sm:text-xl">Contact Us</h3>
+          <p class="font-light mb-6 text-sm sm:text-base">
+            If you have any questions about these Terms, please contact our support team at:{" "}
+            <strong>07025357422</strong>
+          </p>
+        </section>
+      </div>
+    </section>
+  </div>
+  <script>
+    document.body.style.backgroundColor = "#172554F2"
+  </script>
+</Layout>

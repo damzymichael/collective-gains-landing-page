@@ -1,0 +1,61 @@
+@import "tailwindcss";
+
+@config "../../tailwind.config.ts";
+
+@layer base {
+  @font-face {
+    font-family: "Acid-Grotesk";
+    src: url("/fonts/acid-grotesk-thin.otf") format("opentype");
+    font-weight: 100;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "Acid-Grotesk";
+    src: url("/fonts/acid-grotesk-extralight.otf") format("opentype");
+    font-weight: 200;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "Acid-Grotesk";
+    src: url("/fonts/acid-grotesk-light.otf") format("opentype");
+    font-weight: 300;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "Acid-Grotesk";
+    src: url("/fonts/acid-grotesk-regular.otf") format("opentype");
+    font-weight: 400;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "Acid-Grotesk";
+    src: url("/fonts/acid-grotesk-medium.otf") format("opentype");
+    font-weight: 500;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "Acid-Grotesk";
+    src: url("/fonts/acid-grotesk-bold.otf") format("opentype");
+    font-weight: 700;
+    font-display: swap;
+  }
+
+  body {
+    @apply font-acid-grotesk;
+  }
+
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
