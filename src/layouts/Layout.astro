@@ -12,6 +12,7 @@ const { title, description = "Collective Gains Services" } = Astro.props
 
 const pageTitle = title ? `${title} - Collective Gains` : "Collective Gains"
 // Todo Add Signup and login link from Dashboard
+const dashboardUrl = import.meta.env.PUBLIC_DASHBOARD_URL
 ---
 
 <!doctype html>
@@ -57,11 +58,16 @@ const pageTitle = title ? `${title} - Collective Gains` : "Collective Gains"
             </div>
             <div class="flex gap-2 items-center">
               <li>
-                <a href="#" class="bg-primary py-2 px-6 text-white rounded-full"> Sign up </a>
+                <a
+                  href={dashboardUrl + "/auth/register"}
+                  class="bg-primary py-2 px-6 text-white rounded-full"
+                >
+                  Sign up
+                </a>
               </li>
               <li>
                 <a
-                  href="#"
+                  href={dashboardUrl + "/auth/login"}
                   class="bg-[#E2E6F1] border border-primary py-2 px-6 text-primary rounded-full"
                 >
                   Login
@@ -103,17 +109,17 @@ const pageTitle = title ? `${title} - Collective Gains` : "Collective Gains"
           </ul>
         </nav>
         <div
-          class="absolute left-1/2 -translate-x-1/2 w-full bottom-10 px-2 space-y-2 font-semibold"
+          class="absolute left-1/2 -translate-x-1/2 w-full bottom-20 px-2 space-y-2 font-semibold"
         >
           <a
-            href="#"
+            href={dashboardUrl + "/auth/register"}
             class="bg-primary block text-center py-2 px-6 text-white rounded-full mobile-link"
           >
             Sign up
           </a>
 
           <a
-            href="#"
+            href={dashboardUrl + "/auth/login"}
             class="bg-[#E2E6F1] block text-center border border-primary py-2 px-6 text-primary rounded-full mobile-link"
           >
             Login
