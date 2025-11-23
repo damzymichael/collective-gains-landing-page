@@ -1,20 +1,449 @@
 ---
 import Layout from "../layouts/Layout.astro"
+import community_powered from "../assets/community-powered.png"
+import earn_more from "../assets/earn-more.png"
+import safe_secure from "../assets/safe-secure.png"
+import transparent_dashboard from "../assets/transparent-dashboard.png"
+import steps_curve from "../assets/steps-curve.png"
+import steps_curve_mobile from "../assets/steps-curve-mobile.png"
+import icon_white from "../assets/icon-white.svg"
+import wave from "../assets/wave.png"
+import { FiPhone } from "react-icons/fi"
+import { MdOutlineMailOutline } from "react-icons/md"
+import { IoCheckmarkCircleSharp } from "react-icons/io5"
+import { FaChevronRight, FaChevronLeft, FaChevronDown, FaChevronUp } from "react-icons/fa6"
+
+// Todo Replace all links aith actual sign up links
+const signupUrl = import.meta.env.PUBLIC_DASHBOARD_URL + "/auth/register"
 ---
 
 <Layout>
-  <div class="h-[80vh] max-h-[1500px] flex items-center justify-center">
-    <div>
-      <p class="text-2xl md:text-4xl font-bold -mt-20 text-white mb-4">
-        Collective Gains landing page
+  <div class="min-h-[80vh]">
+    <section class="hero-bg -translate-y-20 pt-28 px-3 text-white">
+      <h2 class="text-white text-center font-bold text-3xl md:text-5xl mb-6 sm:mb-10">
+        Grow Your <strong class="text-secondary">Wealth</strong> with{" "}
+        <em class="font-light not-italic">friends</em>, <br />{" "}
+        <strong class="text-secondary">Earn</strong> Every{" "}
+        <em class="font-light not-italic">Step</em> of the Way.
+      </h2>
+      <p class="font-medium max-w-[900px] mx-auto text-lg sm:text-2xl mb-5">
+        Join a community where your one-time contribution and simple referrals unlock continuous
+        earnings. Transparent, secure, and built for everyday people like you.
       </p>
-      <nav class="flex justify-center items-center gap-2 sm:gap-3 text-white text-sm sm:text-base">
-        <a href="/terms-and-conditions" class="underline">Terms and Conditions</a>
-        <a href="/privacy-policy" class="underline">Privacy Policy</a>
+      <nav class="flex flex-col sm:flex-row gap-3 justify-center items-center font-manrope mb-10">
+        <a
+          href={signupUrl}
+          class="font-semibold bg-primary px-6 py-2 rounded-full w-full sm:w-max text-center"
+        >
+          Get started
+        </a>
+        <button
+          class="font-semibold bg-[#E2E6F1] px-6 py-2 rounded-full text-primary border border-primary w-full sm:w-max"
+        >
+          See how it works
+        </button>
       </nav>
+      <div class="mx-auto relative w-[95%] max-w-[600px] mt-20 sm:mt-0">
+        <div
+          class="bg-white rounded-2xl font-bold py-2 px-6 w-max absolute right-0 -top-14 sm:top-[10%]"
+        >
+          <p class="text-black text-3xl sm:text-4xl">1000+</p>
+          <p class="text-secondary font-manrope text-sm sm:text-base">Withdrawals</p>
+        </div>
+        <div
+          class="bg-white rounded-2xl font-bold py-2 px-10 w-max absolute right-0 md:-right-20 bottom-12 sm:bottom-24"
+        >
+          <p class="text-black text-3xl sm:text-4xl">24/7</p>
+          <p class="text-secondary font-manrope text-sm sm:text-base">Support</p>
+        </div>
+        <div
+          class="bg-white rounded-2xl font-bold py-2 px-6 w-max absolute left-0 md:-left-20 lg:-left-24 bottom-1 md:bottom-56"
+        >
+          <p class="text-black text-3xl sm:text-4xl">1.5k</p>
+          <p class="text-secondary font-manrope text-sm sm:text-base">Active Users</p>
+        </div>
+        <img src="/images/friends.png" alt="" class="w-full" />
+      </div>
+    </section>
+
+    <section
+      class="text-primary font-bold pb-14 px-4 sm:px-6 md:px-10 lg:px-14 max-w-screen-2xl mx-auto"
+    >
+      <h2 class="font-bold text-3xl sm:text-5xl text-center -translate-y-5">
+        Why should you join <br /> us?
+      </h2>
+      <p class="text-lg sm:text-2xl max-w-[850px] font-normal mx-auto mb-5">
+        We designed this platform for everyday people who want simple, stress-free income growth. No
+        hidden rules, no complicated steps - just real rewards.
+      </p>
+      <div class="">
+        <div class="grid gap-3 grid-cols-10">
+          <div class="col-span-10 md:col-span-4 bg-[#E2E6F1] p-2 rounded-md border border-primary">
+            <img src={earn_more.src} alt="" class="mb-2 h-36 w-full object-cover" />
+            <h4 class="text-black font-bold text-xl">Earn more, worry less</h4>
+            <p class="font-normal">One simple contribution, lifetime earning potential.</p>
+          </div>
+          <div class="col-span-10 md:col-span-6 bg-secondary p-2 rounded-md">
+            <img src={community_powered.src} alt="" class="mb-2 h-36 w-full object-cover" />
+            <h4 class="text-black font-bold text-xl">Community-Powered Growth</h4>
+            <p class="font-normal">The more your network grows, the more you gain..</p>
+          </div>
+          <div class="col-span-10 md:col-span-6 bg-secondary p-2 rounded-md order-last md:order-3">
+            <img src={transparent_dashboard.src} alt="" class="mb-2 h-36 w-full object-cover" />
+            <h4 class="text-black font-bold text-xl">Transparent Dashboard</h4>
+            <p class="font-normal">Track referrals, payouts, and earnings in real time.</p>
+          </div>
+          <div
+            class="col-span-10 md:col-span-4 bg-[#E2E6F1] p-2 border border-primary rounded-md order-3 md:order-last"
+          >
+            <img src={safe_secure.src} alt="" class="mb-2 h-36 w-full object-cover" />
+            <h4 class="text-black font-bold text-xl">Safe & Secure</h4>
+            <p class="font-normal">Your funds and data are protected with bank-level security.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="how-it-works" class="px-4 sm:px-6 md:px-10 lg:px-14 max-w-screen-2xl mx-auto">
+      <header class="flex gap-2 md:gap-0 flex-col md:flex-row justify-between text-primary">
+        <h2 class="font-bold text-4xl xl:text-5xl mt-4">How it works</h2>
+        <div class="w-full md:max-w-[500px] lg:max-w-[630px] xl:max-w-[700px]">
+          <p class="text-xl lg:text-2xl mb-8 md:mb-10">
+            Whether you’re new to earning online or simply looking for a reliable stream of extra
+            income, our process is built to be fast and foolproof.
+          </p>
+          <a
+            href="/auth/signup"
+            class="font-semibold bg-primary px-10 py-3 rounded-full w-full sm:w-max text-center text-white"
+          >
+            Start earning today
+          </a>
+        </div>
+      </header>
+      <img src={steps_curve.src} alt="Step curve icon" class="hidden lg:inline-block" />
+      <article class="text-primary xl:px-8 mt-16 lg:mt-0 pb-10 lg:pb-0 relative">
+        <img
+          src={steps_curve_mobile.src}
+          alt="Step curve icon"
+          class="lg:hidden absolute object-cover w-full h-full -mx-3"
+        />
+        <ul class="grid gap-y-5 grid-cols-4 relative z-10">
+          <li class="col-span-4 lg:col-span-1 lg:-translate-y-16">
+            <p
+              class="bg-primary text-white size-16 grid place-items-center rounded-full text-3xl mx-auto mb-4 lg:ml-5"
+            >
+              01
+            </p>
+            <div
+              class="border border-primary py-7 rounded-xl px-5 max-w-[246px] mx-auto sm:max-w-[400px] lg:max-w-[246px] bg-white"
+            >
+              <h3 class="font-bold text-center text-xl mb-3">Join for free</h3>
+              <p class="text-center lg:text-left">
+                Sign up in minutes with your email or phone number.
+              </p>
+            </div>
+          </li>
+
+          <li class="col-span-4 lg:col-span-1 lg:-translate-y-24">
+            <p
+              class="bg-primary text-white size-16 grid place-items-center rounded-full text-3xl mx-auto mb-4 lg:ml-5"
+            >
+              02
+            </p>
+            <div
+              class="border border-primary py-5 rounded-xl px-5 max-w-[246px] mx-auto sm:max-w-[400px] lg:max-w-[246px] bg-white"
+            >
+              <h3 class="font-bold text-center text-xl mb-3">Contribute Once</h3>
+              <p>Make a one-time payment of ₦2000 to activate your account.</p>
+            </div>
+          </li>
+
+          <li class="col-span-4 lg:col-span-1 lg:-translate-y-40">
+            <p
+              class="bg-primary text-white size-16 grid place-items-center rounded-full text-3xl mx-auto mb-4 lg:ml-5"
+            >
+              03
+            </p>
+            <div
+              class="border border-primary py-5 w-max rounded-xl px-5 max-w-[246px] mx-auto sm:max-w-[400px] lg:max-w-[246px] bg-white"
+            >
+              <h3 class="font-bold text-center text-xl mb-3">Earn & Grow</h3>
+              <p>
+                Get rewarded for your own contribution and bonuses when your invite friends to join.
+              </p>
+            </div>
+          </li>
+
+          <li class="col-span-4 lg:col-span-1 lg:-translate-y-[310px]">
+            <p
+              class="bg-primary text-white size-16 grid place-items-center rounded-full text-3xl mx-auto mb-4 lg:ml-5"
+            >
+              04
+            </p>
+            <div
+              class="border border-primary py-5 w-max rounded-xl px-5 max-w-[246px] mx-auto sm:max-w-[400px] lg:max-w-[246px] bg-white"
+            >
+              <h3 class="font-bold text-center text-xl mb-3">Withdraw Anytime</h3>
+              <p>Access your earnings instantly through your secure dashboard.</p>
+            </div>
+          </li>
+        </ul>
+      </article>
+    </section>
+
+    <section class="text-primary pb-14 relative">
+      <h2 class="font-bold text-3xl md:text-5xl mt-4 text-center mb-10">
+        Pricing (Transparent <br /> & Simple)
+      </h2>
+      <p
+        class="text-lg md:text-2xl max-w-[900px] mx-auto text-center md:text-left px-10 lg:px-0 mb-10"
+      >
+        We believe in absolute transparency. Your contribution is a one-time payment—no renewals, no
+        subscriptions, no surprises.
+      </p>
+      <img
+        src={wave.src}
+        alt="Wave svg"
+        class="absolute -z-10 w-full top-[250px] mx-auto left-1/2 -translate-x-1/2 max-w-screen-2xl hidden md:inline-block"
+      />
+      <div class="px-4 sm:px-6 md:px-10 lg:px-14">
+        <div
+          class="bg-[#E2E6F1] border border-primary min-h-[400px] max-w-[600px] rounded-xl mx-auto py-5 px-5 md:px-10 text-black"
+        >
+          <h3 class="font-bold text-2xl md:text-3xl mb-4">Activation plan</h3>
+          <p class="text-xl md:text-2xl mb-5">
+            No Hidden Charges. Just One Contribution, Continuous Rewards.
+          </p>
+          <p class="text-primary font-bold text-5xl sm:text-7xl mb-10">₦2000.00</p>
+          <a
+            href={signupUrl}
+            class="font-semibold bg-primary text-white px-6 py-2 rounded-full block mb-5 w-full text-center"
+          >
+            Get started
+          </a>
+          <ul class="space-y-2">
+            <li>
+              <div class="flex gap-2 items-center text-base md:text-lg">
+                <IoCheckmarkCircleSharp />
+                <p>Lifetime access to referral rewards</p>
+              </div>
+            </li>
+
+            <li>
+              <div class="flex gap-2 items-center text-base md:text-lg">
+                <IoCheckmarkCircleSharp />
+                <p>Real-time earnings dashboard</p>
+              </div>
+            </li>
+
+            <li>
+              <div class="flex gap-2 items-center text-base md:text-lg">
+                <IoCheckmarkCircleSharp />
+                <p>Instant withdrawals</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <div class="bg-primary text-white min-h-20">
+      <section class="px-4 sm:px-6 md:px-10 lg:px-14 py-10 max-w-screen-2xl mx-auto">
+        <h2 class="text-center font-bold text-3xl md:text-5xl mb-8">
+          Real People, <br /> Real Earnings
+        </h2>
+        <p class="text-lg md:text-2xl text-center max-w-[980px] mx-auto mb-10">
+          Don’t just take our word for it, our community is already growing and thriving.
+          Here&apos;s what members are saying:
+        </p>
+        <div>
+          <ul
+            class="grid items-center gap-3 grid-cols-3 mx-auto px-10 sm:px-14 md:px-0 text-black mb-10"
+          >
+            <li class="col-span-3 md:col-span-1">
+              <div
+                class="bg-white rounded-xl max-w-[400px] min-h-[200px] mx-auto p-4 sm:p-8 xl:p-10"
+              >
+                <h4 class="font-bold text-lg sm:text-xl">Chinedu O.</h4>
+                <p class="text- mb-4">Lagos</p>
+                <p>
+                  “The dashboard makes it easy to see where my money is coming from. Super
+                  transparent."
+                </p>
+              </div>
+            </li>
+            <li class="col-span-3 md:col-span-1">
+              <div
+                class="bg-[#E2E6F1] rounded-xl max-w-[400px] md:min-h-[250px] mx-auto p-4 sm:p-8 xl:p-10"
+              >
+                <h4 class="font-bold text-lg sm:text-xl">Jane A.</h4>
+                <p class="text- mb-4">Abuja</p>
+                <p class="">
+                  I joined Mutual Gains in March and earned back my contribution plus ₦20,000 from
+                  referrals in just two months.”
+                </p>
+              </div>
+            </li>
+            <li class="col-span-3 md:col-span-1">
+              <div
+                class="bg-white rounded-xl max-w-[400px] min-h-[200px] mx-auto p-4 sm:p-8 xl:p-10"
+              >
+                <h4 class="font-bold text-lg sm:text-xl">Olushola O.</h4>
+                <p class="text- mb-4">Abuja</p>
+                <p class="">
+                  “The dashboard makes it easy to see where my money is coming from. Super
+                  transparent.
+                </p>
+              </div>
+            </li>
+          </ul>
+          <div class="w-max mx-auto space-x-10 text-primary">
+            <button class="bg-[#C3C3C3] p-3 rounded-full">
+              <FaChevronLeft />
+            </button>
+            <button class="bg-white p-3 rounded-full">
+              <FaChevronRight />
+            </button>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <section
+      class="py-14 md:py-20 px-4 sm:px-6 md:px-10 lg:px-14 max-w-screen-2xl mx-auto flex gap-10 md:gap-0 flex-col md:flex-row justify-between"
+    >
+      <div class="text-primary md:pt-6 lg:pt-10">
+        <h3 class="text-3xl md:text-4xl lg:text-5xl mb-4 md:mb-7 font-bold">
+          Frequently asked <br /> questions
+        </h3>
+        <p class="max-w-[400px] text-lg md:text-2xl mb-10 md:mb-14">
+          We keep things simple, but here are the questions we hear most often:
+        </p>
+        <a
+          href={signupUrl}
+          class="font-semibold bg-primary px-10 py-3 rounded-full block w-full md:w-max text-center text-white font-manrope"
+        >
+          Start earning today
+        </a>
+      </div>
+      <div class="grow md:max-w-[500px]">
+        <ul class="space-y-3">
+          <li>
+            <div class="bg-[#E2E6F1] text-black p-3 border border-primary rounded-xl">
+              <header class="flex justify-between items-center">
+                <h5 class="font-bold text-lg sm:text-xl">What do I need to start</h5>
+                <button class="bg-primary text-[#E2E6F1] p-2 text-sm rounded-full">
+                  <FaChevronUp />
+                </button>
+              </header>
+              <p class="mt-3 text-sm sm:text-base pr-10">
+                Just an email/phone number and a one-time contribution of ₦2000
+              </p>
+            </div>
+          </li>
+
+          <li>
+            <div class="bg-[#E2E6F1] text-black p-3 border border-primary rounded-xl">
+              <header class="flex justify-between items-center">
+                <h5 class="font-bold text-lg sm:text-xl">How do I earn?</h5>
+                <button class="bg-primary text-[#E2E6F1] p-2 text-sm rounded-full">
+                  <FaChevronDown />
+                </button>
+              </header>
+            </div>
+          </li>
+
+          <li>
+            <div class="bg-[#E2E6F1] text-black p-3 border border-primary rounded-xl">
+              <header class="flex justify-between items-center">
+                <h5 class="font-bold text-lg sm:text-xl">When can I withdraw my money?</h5>
+                <button class="bg-primary text-[#E2E6F1] p-2 text-sm rounded-full">
+                  <FaChevronDown />
+                </button>
+              </header>
+            </div>
+          </li>
+
+          <li>
+            <div class="bg-[#E2E6F1] text-black p-3 border border-primary rounded-xl">
+              <header class="flex justify-between items-center">
+                <h5 class="font-bold text-lg sm:text-xl">Is my money safe?</h5>
+                <button class="bg-primary text-[#E2E6F1] p-2 text-sm rounded-full">
+                  <FaChevronDown />
+                </button>
+              </header>
+            </div>
+          </li>
+
+          <li>
+            <div class="bg-[#E2E6F1] text-black p-3 border border-primary rounded-xl">
+              <header class="flex justify-between items-center">
+                <h5 class="font-bold text-lg sm:text-xl">Is this a loan or investment scheme?</h5>
+                <button class="bg-primary text-[#E2E6F1] p-2 text-sm rounded-full">
+                  <FaChevronDown />
+                </button>
+              </header>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <div class="bg-primary text-white min-h-20 rounded-t-4xl py-10">
+      <footer
+        class="px-4 sm:px-6 md:px-10 lg:px-14 max-w-screen-2xl mx-auto grid gap-10 sm:gap-5 grid-cols-3 font-manrope"
+      >
+        <div class="col-span-3 sm:col-span-1">
+          <img
+            src={icon_white.src}
+            alt="Icon"
+            class="aspect-video w-[155px] h-[66px] mb-2 sm:mb-4"
+          />
+          <p class="text-sm font-extralight">Grow Together. Earn Together.”</p>
+        </div>
+        <nav class="font-semibold text-lg col-span-3 sm:col-span-1">
+          <ul class="space-y-2">
+            <li>
+              <a href="/">Home</a>
+            </li>
+            <li>
+              <a href="#how-it-works">How it works</a>
+            </li>
+            <li>
+              <a href="#faq">FAQ</a>
+            </li>
+            <li>
+              <a href="/terms-and-conditions">Terms and conditions</a>
+            </li>
+            <li>
+              <a href="/privacy-policy">Privacy Policy</a>
+            </li>
+          </ul>
+        </nav>
+        <div class="col-span-3 sm:col-span-1 space-y-3">
+          <h5 class="font-semibold text-lg">Contact us</h5>
+          <a
+            href="tel:+2347036138115"
+            target="_blank"
+            class="flex items-center gap-2 text-secondary"
+          >
+            <FiPhone />
+            <span class="text-white">+234 703 613 8115</span>
+          </a>
+
+          <a
+            href="mailto:info@trianenergy.com.ng"
+            target="_blank"
+            class="flex items-center gap-2 text-secondary"
+          >
+            <MdOutlineMailOutline />
+            <span class="text-white">support@collectivegains.com.ng</span>
+          </a>
+        </div>
+      </footer>
     </div>
   </div>
   <script>
-    document.body.style.backgroundColor = "#364153"
+    document.body.style.backgroundColor = "#fff"
   </script>
 </Layout>

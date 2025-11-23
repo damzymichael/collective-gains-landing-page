@@ -11,7 +11,6 @@ interface Props {
 const { title, description = "Collective Gains Services" } = Astro.props
 
 const pageTitle = title ? `${title} - Collective Gains` : "Collective Gains"
-// Todo Add Signup and login link from Dashboard
 const dashboardUrl = import.meta.env.PUBLIC_DASHBOARD_URL
 ---
 
@@ -41,19 +40,23 @@ const dashboardUrl = import.meta.env.PUBLIC_DASHBOARD_URL
     <div class="min-h-screen border">
       <header class="py-3 font-manrope">
         <nav
-          class="bg-white w-[95%] rounded-4xl px-3 md:px-2 mx-auto max-w-[700px] py-2 md:py-3 flex items-center justify-between"
+          class="bg-white w-[95%] rounded-4xl px-3 md:px-2 mx-auto max-w-[700px] py-2 md:py-3 flex items-center justify-between relative z-20"
         >
-          <img src="/icon.svg" alt="Collective Gains Icon" class="-translate-y-1 h-[30px] mr-10" />
+          <img
+            src="/images/icon.svg"
+            alt="Collective Gains Icon"
+            class="-translate-y-1 h-[30px] mr-10"
+          />
           <ul class="font-semibold hidden md:flex items-center justify-between gap-5 grow">
             <div class="flex items-center justify-around gap-5 grow">
               <li>
-                <a href="#">Home</a>
+                <a href="/">Home</a>
               </li>
               <li>
-                <a href="#">How it works</a>
+                <a href="#how-it-works">How it works</a>
               </li>
               <li>
-                <a href="#">FAQ</a>
+                <a href="#faq">FAQ</a>
               </li>
             </div>
             <div class="flex gap-2 items-center">
@@ -84,10 +87,14 @@ const dashboardUrl = import.meta.env.PUBLIC_DASHBOARD_URL
       <!-- Mobile opening navigation  -->
       <div
         style="clip-path: circle(0.3% at 100% 0); display: none;"
-        class="bg-white fixed top-0 w-full h-screen md:hidden flex flex-col mobile-navigation"
+        class="bg-white fixed top-0 w-full h-screen md:hidden flex flex-col mobile-navigation z-20"
       >
         <header class="py-4 px-2 border-b border-primary flex items-center justify-between">
-          <img src="/icon.svg" alt="Collective Gains Icon" class="-translate-y-1 h-[30px] mr-10" />
+          <img
+            src="/images/icon.svg"
+            alt="Collective Gains Icon"
+            class="-translate-y-1 h-[30px] mr-10"
+          />
           <button class="closeNavigaton">
             <IoCloseCircle size={35} color="#172554" />
           </button>
@@ -98,13 +105,15 @@ const dashboardUrl = import.meta.env.PUBLIC_DASHBOARD_URL
               <a href="#" class="block w-full py-3 px-2 bg-primary text-white rounded-lg"> Home </a>
             </li> -->
             <li>
-              <a href="#" class="block w-full py-3 px-2 rounded-lg mobile-link"> Home </a>
+              <a href="/" class="block w-full py-3 px-2 rounded-lg mobile-link"> Home </a>
             </li>
             <li>
-              <a href="#" class="block w-full py-3 px-2 rounded-lg mobile-link"> How it works </a>
+              <a href="#how-it-works" class="block w-full py-3 px-2 rounded-lg mobile-link">
+                How it works
+              </a>
             </li>
             <li>
-              <a href="#" class="block w-full py-3 px-2 rounded-lg mobile-link"> FAQ </a>
+              <a href="#faq" class="block w-full py-3 px-2 rounded-lg mobile-link"> FAQ </a>
             </li>
           </ul>
         </nav>
