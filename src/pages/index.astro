@@ -37,11 +37,12 @@ const signupUrl = import.meta.env.PUBLIC_DASHBOARD_URL + "/auth/register"
         >
           Get started
         </a>
-        <button
-          class="font-semibold bg-[#E2E6F1] px-6 py-2 rounded-full text-primary border border-primary w-full sm:w-max"
+        <a
+          href="#how-it-works"
+          class="font-semibold bg-[#E2E6F1] px-6 py-2 rounded-full text-primary border border-primary block text-center w-full sm:w-max"
         >
           See how it works
-        </button>
+        </a>
       </nav>
       <div class="mx-auto relative w-[95%] max-w-[600px] mt-20 sm:mt-0">
         <div
@@ -113,7 +114,7 @@ const signupUrl = import.meta.env.PUBLIC_DASHBOARD_URL + "/auth/register"
             income, our process is built to be fast and foolproof.
           </p>
           <a
-            href="/auth/signup"
+            href={signupUrl}
             class="font-semibold bg-primary px-10 py-3 rounded-full w-full sm:w-max text-center text-white"
           >
             Start earning today
