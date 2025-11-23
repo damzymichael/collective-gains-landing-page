@@ -21,7 +21,7 @@ const dashboardUrl = import.meta.env.PUBLIC_DASHBOARD_URL
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
 
-    <!-- <meta property="og:image" content="/engineer.jpg" /> -->
+    <meta property="og:image" content="/images/friends.png" />
     <meta property="og:type" content="website" />
     <link rel="icon" type="image/svg+xml" href="/icon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -140,7 +140,7 @@ const dashboardUrl = import.meta.env.PUBLIC_DASHBOARD_URL
       </main>
     </div>
     <script>
-      import { animate } from "motion/react"
+      import { animate, type AnimationOptions } from "motion"
 
       const openNavigation = document.querySelector(".openNavigation") as HTMLElement
       const closeNavigation = document.querySelector(".closeNavigaton") as HTMLElement
@@ -171,7 +171,12 @@ const dashboardUrl = import.meta.env.PUBLIC_DASHBOARD_URL
 
       mobileLinks.forEach((link) => link.addEventListener("click", closeMobileNavigation))
 
-      // Resize event listener to close navigation when screen size exceeds md
+      // Resize event listener to close navigation when screen size exceeds 768px
+      window.addEventListener("resize", () => {
+        if (!window.matchMedia("(max-width: 768px)").matches) {
+          closeMobileNavigation()
+        }
+      })
     </script>
   </body>
 </html>
