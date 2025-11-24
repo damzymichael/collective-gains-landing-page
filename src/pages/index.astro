@@ -11,10 +11,17 @@ import wave from "../assets/wave.png"
 import { FiPhone } from "react-icons/fi"
 import { MdOutlineMailOutline } from "react-icons/md"
 import { IoCheckmarkCircleSharp } from "react-icons/io5"
-import { FaChevronRight, FaChevronLeft, FaChevronDown, FaChevronUp } from "react-icons/fa6"
+import AnimatedCounter from "../components/AnimatedCounter"
+import Reviews from "../components/Reviews"
+import FAQs from "../components/FAQs"
 
 const signupUrl = import.meta.env.PUBLIC_DASHBOARD_URL + "/auth/register"
-// Todo Add javascript and animations
+
+const perks = [
+  "Lifetime access to referral rewards",
+  "Real-time earnings dashboard",
+  "Instant withdrawals",
+]
 ---
 
 <Layout>
@@ -48,7 +55,7 @@ const signupUrl = import.meta.env.PUBLIC_DASHBOARD_URL + "/auth/register"
         <div
           class="bg-white rounded-2xl font-bold py-2 px-6 w-max absolute right-0 -top-14 sm:top-[10%]"
         >
-          <p class="text-black text-3xl sm:text-4xl">1000+</p>
+          <p class="text-black text-3xl sm:text-4xl"><AnimatedCounter client:load to={1000} />+</p>
           <p class="text-secondary font-manrope text-sm sm:text-base">Withdrawals</p>
         </div>
         <div
@@ -60,7 +67,9 @@ const signupUrl = import.meta.env.PUBLIC_DASHBOARD_URL + "/auth/register"
         <div
           class="bg-white rounded-2xl font-bold py-2 px-6 w-max absolute left-0 md:-left-20 lg:-left-24 bottom-1 md:bottom-56"
         >
-          <p class="text-black text-3xl sm:text-4xl">1.5k</p>
+          <p class="text-black text-3xl sm:text-4xl">
+            <AnimatedCounter client:load to={1500} formatThousand />
+          </p>
           <p class="text-secondary font-manrope text-sm sm:text-base">Active Users</p>
         </div>
         <img src="/images/friends.png" alt="" class="w-full" />
@@ -79,23 +88,27 @@ const signupUrl = import.meta.env.PUBLIC_DASHBOARD_URL + "/auth/register"
       </p>
       <div class="">
         <div class="grid gap-3 grid-cols-10">
-          <div class="col-span-10 md:col-span-4 bg-[#E2E6F1] p-2 rounded-md border border-primary">
+          <div
+            class="col-span-10 md:col-span-4 bg-[#E2E6F1] p-2 rounded-md border border-primary choose-us-one"
+          >
             <img src={earn_more.src} alt="" class="mb-2 h-36 w-full object-cover" />
             <h4 class="text-black font-bold text-xl">Earn more, worry less</h4>
             <p class="font-normal">One simple contribution, lifetime earning potential.</p>
           </div>
-          <div class="col-span-10 md:col-span-6 bg-secondary p-2 rounded-md">
+          <div class="col-span-10 md:col-span-6 bg-secondary p-2 rounded-md choose-us-two">
             <img src={community_powered.src} alt="" class="mb-2 h-36 w-full object-cover" />
             <h4 class="text-black font-bold text-xl">Community-Powered Growth</h4>
             <p class="font-normal">The more your network grows, the more you gain..</p>
           </div>
-          <div class="col-span-10 md:col-span-6 bg-secondary p-2 rounded-md order-last md:order-3">
+          <div
+            class="col-span-10 md:col-span-6 bg-secondary p-2 rounded-md order-last md:order-3 choose-us-three"
+          >
             <img src={transparent_dashboard.src} alt="" class="mb-2 h-36 w-full object-cover" />
             <h4 class="text-black font-bold text-xl">Transparent Dashboard</h4>
             <p class="font-normal">Track referrals, payouts, and earnings in real time.</p>
           </div>
           <div
-            class="col-span-10 md:col-span-4 bg-[#E2E6F1] p-2 border border-primary rounded-md order-3 md:order-last"
+            class="col-span-10 md:col-span-4 bg-[#E2E6F1] p-2 border border-primary rounded-md order-3 md:order-last choose-us-four"
           >
             <img src={safe_secure.src} alt="" class="mb-2 h-36 w-full object-cover" />
             <h4 class="text-black font-bold text-xl">Safe & Secure</h4>
@@ -209,7 +222,7 @@ const signupUrl = import.meta.env.PUBLIC_DASHBOARD_URL + "/auth/register"
       />
       <div class="px-4 sm:px-6 md:px-10 lg:px-14">
         <div
-          class="bg-[#E2E6F1] border border-primary min-h-[400px] max-w-[600px] rounded-xl mx-auto py-5 px-5 md:px-10 text-black"
+          class="bg-[#E2E6F1] border border-primary min-h-[400px] max-w-[600px] rounded-xl mx-auto py-5 px-5 md:px-10 text-black payment-plan"
         >
           <h3 class="font-bold text-2xl md:text-3xl mb-4">Activation plan</h3>
           <p class="text-xl md:text-2xl mb-5">
@@ -222,27 +235,17 @@ const signupUrl = import.meta.env.PUBLIC_DASHBOARD_URL + "/auth/register"
           >
             Get started
           </a>
-          <ul class="space-y-2">
-            <li>
-              <div class="flex gap-2 items-center text-base md:text-lg">
-                <IoCheckmarkCircleSharp />
-                <p>Lifetime access to referral rewards</p>
-              </div>
-            </li>
-
-            <li>
-              <div class="flex gap-2 items-center text-base md:text-lg">
-                <IoCheckmarkCircleSharp />
-                <p>Real-time earnings dashboard</p>
-              </div>
-            </li>
-
-            <li>
-              <div class="flex gap-2 items-center text-base md:text-lg">
-                <IoCheckmarkCircleSharp />
-                <p>Instant withdrawals</p>
-              </div>
-            </li>
+          <ul class="space-y-2 perks-list">
+            {
+              perks.map((perk) => (
+                <li>
+                  <div class="flex gap-2 items-center text-base md:text-lg">
+                    <IoCheckmarkCircleSharp />
+                    <p>{perk}</p>
+                  </div>
+                </li>
+              ))
+            }
           </ul>
         </div>
       </div>
@@ -257,56 +260,7 @@ const signupUrl = import.meta.env.PUBLIC_DASHBOARD_URL + "/auth/register"
           Don’t just take our word for it, our community is already growing and thriving.
           Here&apos;s what members are saying:
         </p>
-        <div>
-          <ul
-            class="grid items-center gap-3 grid-cols-3 mx-auto px-10 sm:px-14 md:px-0 text-black mb-10"
-          >
-            <li class="col-span-3 md:col-span-1">
-              <div
-                class="bg-white rounded-xl max-w-[400px] min-h-[200px] mx-auto p-4 sm:p-8 xl:p-10"
-              >
-                <h4 class="font-bold text-lg sm:text-xl">Chinedu O.</h4>
-                <p class="text- mb-4">Lagos</p>
-                <p>
-                  “The dashboard makes it easy to see where my money is coming from. Super
-                  transparent."
-                </p>
-              </div>
-            </li>
-            <li class="col-span-3 md:col-span-1">
-              <div
-                class="bg-[#E2E6F1] rounded-xl max-w-[400px] md:min-h-[250px] mx-auto p-4 sm:p-8 xl:p-10"
-              >
-                <h4 class="font-bold text-lg sm:text-xl">Jane A.</h4>
-                <p class="text- mb-4">Abuja</p>
-                <p class="">
-                  I joined Mutual Gains in March and earned back my contribution plus ₦20,000 from
-                  referrals in just two months.”
-                </p>
-              </div>
-            </li>
-            <li class="col-span-3 md:col-span-1">
-              <div
-                class="bg-white rounded-xl max-w-[400px] min-h-[200px] mx-auto p-4 sm:p-8 xl:p-10"
-              >
-                <h4 class="font-bold text-lg sm:text-xl">Olushola O.</h4>
-                <p class="text- mb-4">Abuja</p>
-                <p class="">
-                  “The dashboard makes it easy to see where my money is coming from. Super
-                  transparent.
-                </p>
-              </div>
-            </li>
-          </ul>
-          <div class="w-max mx-auto space-x-10 text-primary">
-            <button class="bg-[#C3C3C3] p-3 rounded-full">
-              <FaChevronLeft />
-            </button>
-            <button class="bg-white p-3 rounded-full">
-              <FaChevronRight />
-            </button>
-          </div>
-        </div>
+        <Reviews client:visible />
       </section>
     </div>
 
@@ -329,70 +283,12 @@ const signupUrl = import.meta.env.PUBLIC_DASHBOARD_URL + "/auth/register"
         </a>
       </div>
       <div class="grow md:max-w-[500px]">
-        <ul class="space-y-3">
-          <li>
-            <div class="bg-[#E2E6F1] text-black p-3 border border-primary rounded-xl">
-              <header class="flex justify-between items-center">
-                <h5 class="font-bold text-lg sm:text-xl">What do I need to start</h5>
-                <button class="bg-primary text-[#E2E6F1] p-2 text-sm rounded-full">
-                  <FaChevronUp />
-                </button>
-              </header>
-              <p class="mt-3 text-sm sm:text-base pr-10">
-                Just an email/phone number and a one-time contribution of ₦2000
-              </p>
-            </div>
-          </li>
-
-          <li>
-            <div class="bg-[#E2E6F1] text-black p-3 border border-primary rounded-xl">
-              <header class="flex justify-between items-center">
-                <h5 class="font-bold text-lg sm:text-xl">How do I earn?</h5>
-                <button class="bg-primary text-[#E2E6F1] p-2 text-sm rounded-full">
-                  <FaChevronDown />
-                </button>
-              </header>
-            </div>
-          </li>
-
-          <li>
-            <div class="bg-[#E2E6F1] text-black p-3 border border-primary rounded-xl">
-              <header class="flex justify-between items-center">
-                <h5 class="font-bold text-lg sm:text-xl">When can I withdraw my money?</h5>
-                <button class="bg-primary text-[#E2E6F1] p-2 text-sm rounded-full">
-                  <FaChevronDown />
-                </button>
-              </header>
-            </div>
-          </li>
-
-          <li>
-            <div class="bg-[#E2E6F1] text-black p-3 border border-primary rounded-xl">
-              <header class="flex justify-between items-center">
-                <h5 class="font-bold text-lg sm:text-xl">Is my money safe?</h5>
-                <button class="bg-primary text-[#E2E6F1] p-2 text-sm rounded-full">
-                  <FaChevronDown />
-                </button>
-              </header>
-            </div>
-          </li>
-
-          <li>
-            <div class="bg-[#E2E6F1] text-black p-3 border border-primary rounded-xl">
-              <header class="flex justify-between items-center">
-                <h5 class="font-bold text-lg sm:text-xl">Is this a loan or investment scheme?</h5>
-                <button class="bg-primary text-[#E2E6F1] p-2 text-sm rounded-full">
-                  <FaChevronDown />
-                </button>
-              </header>
-            </div>
-          </li>
-        </ul>
+        <FAQs client:visible />
       </div>
     </section>
 
-    <div class="bg-primary text-white min-h-20 rounded-t-4xl py-10">
-      <footer
+    <footer class="bg-primary text-white min-h-20 rounded-t-0 py-10">
+      <div
         class="px-4 sm:px-6 md:px-10 lg:px-14 max-w-screen-2xl mx-auto grid gap-10 sm:gap-5 grid-cols-3 font-manrope"
       >
         <div class="col-span-3 sm:col-span-1">
@@ -442,10 +338,78 @@ const signupUrl = import.meta.env.PUBLIC_DASHBOARD_URL + "/auth/register"
             <span class="text-white">support@collectivegains.com.ng</span>
           </a>
         </div>
-      </footer>
-    </div>
+      </div>
+    </footer>
   </div>
   <script>
+    import { animate, inView, press, stagger } from "motion"
+
+    // Set background color
     document.body.style.backgroundColor = "#fff"
+
+    // Animate link tags and button tags
+    press("a, button", (element) => {
+      animate(element, { scale: 0.8 })
+
+      return () => animate(element, { scale: 1 })
+    })
+
+    // Number animations
+
+    // Re-usable function for grid items animation in 'why choose us' section
+    function gridAnimation(className: string, pos: "LTR" | "RTL") {
+      inView(
+        className,
+        (element) => {
+          animate(element, { opacity: [0, 1], x: [pos === "LTR" ? -20 : 20, 0] }, { duration: 0.5 })
+        },
+        { amount: 0.7 },
+      )
+    }
+
+    gridAnimation(".choose-us-one", "LTR")
+    gridAnimation(".choose-us-two", "RTL")
+
+    gridAnimation(".choose-us-three", "LTR")
+    gridAnimation(".choose-us-four", "RTL")
+
+    // List of steps in how it works section
+    inView(
+      "#how-it-works li",
+      (element) => {
+        animate(element, { opacity: [0, 1], y: [50, 0] }, { duration: 0.7 })
+      },
+      { amount: 0.5 },
+    )
+
+    // Payment modal animation
+    inView(".payment-plan", (element) => {
+      animate(element, { scaleX: [0.9, 1], opacity: [0, 1], y: [50, 0] }, { duration: 1 })
+    })
+
+    inView(
+      ".perks-list",
+      (element) => {
+        animate(
+          ".perks-list li",
+          { opacity: [0, 1], x: [20, 1] },
+          { delay: stagger(0.15), type: "spring", stiffness: 200, damping: 15, duration: 0.4 },
+        )
+      },
+      { amount: "all" },
+    )
+
+    // Footer border animation
+    inView(
+      "footer",
+      (element) => {
+        animate(
+          element,
+          { borderTopLeftRadius: "2rem", borderTopRightRadius: "2rem" },
+          { duration: 0.5 },
+        )
+      },
+      { amount: 0.3 },
+    )
   </script>
 </Layout>
