@@ -55,9 +55,7 @@ const perks = [
         <div
           class="bg-white rounded-2xl font-bold py-2 px-6 w-max absolute right-0 -top-14 sm:top-[10%]"
         >
-          <p class="text-black text-3xl sm:text-4xl user-stats">
-            <!-- <AnimatedCounter client:load to={1000} />+ -->
-          </p>
+          <p class="text-black text-3xl sm:text-4xl withdrawal-stats">500+</p>
           <p class="text-secondary font-manrope text-sm sm:text-base">Withdrawals</p>
         </div>
         <div
@@ -69,8 +67,9 @@ const perks = [
         <div
           class="bg-white rounded-2xl font-bold py-2 px-6 w-max absolute left-0 md:-left-20 lg:-left-24 bottom-1 md:bottom-56"
         >
-          <p class="text-black text-3xl sm:text-4xl">
-            <AnimatedCounter client:load to={1500} formatThousand />
+          <p class="text-black text-3xl sm:text-4xl user-stats">
+            1.1k
+            <!-- <AnimatedCounter client:load to={1500} formatThousand /> -->
           </p>
           <p class="text-secondary font-manrope text-sm sm:text-base">Active Users</p>
         </div>
@@ -349,6 +348,13 @@ const perks = [
     // Set background color
     document.body.style.backgroundColor = "#fff"
 
+    // Animate link tags and button tags on click
+    press("a, button", (element) => {
+      animate(element, { scale: 0.8 })
+
+      return () => animate(element, { scale: 1 })
+    })
+
     // Animated counter
     function formatNumber(value: number, formatThousand: boolean) {
       if (formatThousand && value > 1000) {
@@ -372,29 +378,22 @@ const perks = [
       from = 0,
       formatThousand = false,
     }: CounterAnimationTypes) {
-      element.textContent = formatNumber(from, formatThousand)
       inView(element, (element) => {
         animate(from, to, {
           duration: 1.5,
           ease: "easeOut",
           onUpdate(latest) {
-            element.textContent = formatNumber(latest, formatThousand)
+            element.textContent = `${formatNumber(latest, formatThousand)}${!formatThousand ? "+" : ""}`
           },
         })
       })
     }
 
+    const withdrawalStats = document.querySelector(".withdrawal-stats")!
+    counterAnimation({ element: withdrawalStats, to: 1000 })
+
     const userStats = document.querySelector(".user-stats")!
-    counterAnimation({ element: userStats, to: 1000 })
-
-    // Animate link tags and button tags
-    press("a, button", (element) => {
-      animate(element, { scale: 0.8 })
-
-      return () => animate(element, { scale: 1 })
-    })
-
-    // Number animations
+    counterAnimation({ element: userStats, to: 1500, formatThousand: true })
 
     // Re-usable function for grid items animation in 'why choose us' section
     function gridAnimation(className: string, pos: "LTR" | "RTL") {
