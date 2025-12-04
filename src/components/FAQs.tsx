@@ -2,18 +2,42 @@ import { useState } from "react"
 import { FaChevronDown } from "react-icons/fa6"
 import { AnimatePresence, motion } from "motion/react"
 
-const defaultAnswer = "Lorem ipsum dolor sit amet consectetur adipisicing elit."
-
 const _faqs: { question: string; answer: string; displayAnswer: boolean }[] = [
   {
     question: "What do I need to start",
-    answer: "Just an email/phone number and a one-time contribution of ₦2000",
+    answer: "Just your email,phone number and a one-time contribution of ₦2000",
     displayAnswer: true,
   },
-  { question: "How do I earn?", answer: defaultAnswer, displayAnswer: false },
-  { question: "When can I withdraw my money?", answer: defaultAnswer, displayAnswer: false },
-  { question: "Is my money safe?", answer: defaultAnswer, displayAnswer: false },
-  { question: "Is this a loan or investment scheme?", answer: defaultAnswer, displayAnswer: false },
+  {
+    question: "When can I withdraw my money?",
+    answer:
+      "You can withdraw your money after referring three users who complete their payment, subsequent withdrawals can be done immediately",
+    displayAnswer: false,
+  },
+  {
+    question: "Is my money safe?",
+    answer:
+      "Your money is completely safe, this platform was created to raise funds and build a community",
+    displayAnswer: false,
+  },
+  {
+    question: "How much can I earn?",
+    answer:
+      "Your earning can be as much as your referral but you need 3 referrals in a 5-day window to qualify for a reward",
+    displayAnswer: false,
+  },
+  {
+    question: "Can I sign up without paying?",
+    answer:
+      "Yes, signing up process doesn't require payment but you need to complete your payment to be able to refer other users and earn",
+    displayAnswer: false,
+  },
+  {
+    question: "How can I contact you?",
+    answer:
+      "You can reach out to us on whatsapp on 07036138115 or email us at support@collectivegains.com.ng",
+    displayAnswer: false,
+  },
 ]
 
 function FAQs() {

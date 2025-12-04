@@ -12,22 +12,27 @@ const reviews: { name: string; location: string; review: string }[] = [
       "“The dashboard makes it easy to see where my money is coming from. Super transparent.”",
   },
   {
-    name: "Jane A",
+    name: "Jane A.",
     location: "Abuja",
     review:
-      "“ I joined Collective Gains in March and earned back my contribution plus ₦20,000 from referrals in just two months.”",
+      " “I joined Collective Gains in March and earned back my contribution plus ₦20,000 from referrals in just two months.” ",
   },
   {
     name: "Olushola O.",
-    location: "Lagos",
+    location: "Osun",
     review:
-      " “The dashboard makes it easy to see where my money is coming from. Super transparent.”",
+      " “The referral chain system is clean and transparent. I love seeing every level update.”",
   },
   {
-    name: "Eunice A.",
-    location: "Lagos",
+    name: "Eunice U.",
+    location: "Port Harcourt",
+    review: " “Inviting friends actually pays here — and it’s fun watching the chain grow.”",
+  },
+  {
+    name: "Akanji D.",
+    location: "Ekiti",
     review:
-      " “The dashboard makes it easy to see where my money is coming from. Super transparent.”",
+      " “This platform is perfect for creators and community builders who want to monetize their audience.” ",
   },
 ]
 
@@ -67,7 +72,7 @@ function Reviews() {
                 }}
                 className="bg-white rounded-xl max-w-[400px] mx-auto p-4 sm:p-8 xl:p-10 flex flex-col justify-center"
               >
-                <h4 className="font-bold text-lg sm:text-xl">{review.name}.</h4>
+                <h4 className="font-bold text-lg sm:text-xl">{review.name}</h4>
                 <p className="mb-4">{review.location}</p>
                 <blockquote className="">{review.review}</blockquote>
               </motion.div>
