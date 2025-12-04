@@ -5,7 +5,7 @@ import { AnimatePresence, motion } from "motion/react"
 const _faqs: { question: string; answer: string; displayAnswer: boolean }[] = [
   {
     question: "What do I need to start",
-    answer: "Just your email,phone number and a one-time contribution of ₦2000",
+    answer: "Just your email, phone number and a one-time contribution of ₦2000",
     displayAnswer: true,
   },
   {
